@@ -1,5 +1,6 @@
 package com.codegen.main;
 
+import com.codegen.service.CleanCodePackageManager;
 import com.codegen.service.CodeGeneratorManager;
 import com.google.common.collect.Maps;
 
@@ -17,10 +18,23 @@ public class CodeGeneratorMain {
      * 支持批量生成。map的key为表名，value为实体名
      */
     public static void main(String[] args) {
+        CleanCodePackageManager.cleanMainPackage();
         CodeGeneratorManager cgm = new CodeGeneratorManager();
 
         Map<String, String> map = Maps.newHashMap();
-        map.put("pc_uac_user", "UacUser");
+        map.put("uac_menu_button", "UacMenuButton");
+        map.put("uac_dept", "UacDept");
+        map.put("uac_log", "UacLog");
+        map.put("uac_menu", "UacMenu");
+        map.put("uac_company", "UacCompany");
+        map.put("uac_company_user", "UacCompanyUserKey");
+        map.put("uac_post", "UacPost");
+        map.put("uac_role", "UacRole");
+        map.put("uac_role_action", "UacRoleMenuButtonKey");
+        map.put("uac_role_menu", "UacRoleMenuKey");
+        map.put("uac_role_user", "UacRoleUserKey");
+        map.put("uac_user", "UacUser");
+        map.put("uac_user_menu", "UacUserMenuKey");
         cgm.genMuliCodeWithCustomName(map);
     }
 
